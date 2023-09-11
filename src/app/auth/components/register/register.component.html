@@ -5,6 +5,12 @@
         <h1 class="text-xs-center">Sign up</h1>
         <p class="text-xs-center"><a>Have an account?</a></p>
 
+
+        <mc-backend-errors *ngIf="backendErrors$|async"
+                           [backendErrors]="backendErrors$ | async"
+        ></mc-backend-errors>
+
+
         <form [formGroup]="form" (ngSubmit)="onSubmit()"
               novalidate
               class="ng-untouched ng-pristine ng-invalid">
@@ -36,28 +42,3 @@
   </div>
 </div>
 
-
-
-<!--<form [formGroup]="buyTicketForm" novalidate>-->
-<!--  <div>-->
-<!--    <label>Passenger</label>-->
-<!--    <input type="text" formControlName="passenger" />-->
-<!--  </div>-->
-
-<!--  <div>-->
-<!--    <label>Age</label>-->
-<!--    <input type="number" formControlName="passengerAge" />-->
-<!--  </div>-->
-
-<!--  <div formGroupName="passengerContacts">-->
-<!--    <div>-->
-<!--      <label>Telegram</label>-->
-<!--      <input type="text" formControlName="telegram" />-->
-<!--    </div>-->
-
-<!--    <div>-->
-<!--      <label>Whatsapp</label>-->
-<!--      <input type="text" formControlName="whatsapp" />-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</form>-->

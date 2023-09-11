@@ -6,14 +6,12 @@ import { HttpClient } from '@angular/common/http';
 import { enviroment } from '../../../enviroment/enviroment';
 import { AuthResponseInterface } from '../types/authResponse.interface';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class AuthServiceService {
   public register(
     data: RegisterRequestInterface,
   ): Observable<CurrentUserInterface> {
-    const url = `${enviroment.apiUrl}/users`;
+    const url = `${enviroment.apiUrl2}/users`;
 
     return this.http
       .post<AuthResponseInterface>(url, data)
