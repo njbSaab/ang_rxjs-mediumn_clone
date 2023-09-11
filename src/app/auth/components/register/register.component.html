@@ -4,24 +4,30 @@
       <div class="col-md-6 offset-md-3 col-xs-12">
         <h1 class="text-xs-center">Sign up</h1>
         <p class="text-xs-center"><a>Have an account?</a></p>
-        <form novalidate="" class="ng-untouched ng-pristine ng-invalid">
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()"
+              novalidate
+              class="ng-untouched ng-pristine ng-invalid">
           <fieldset>
             <fieldset class="form-group">
-              <input
-                class="form-control form-control-lg ng-untouched ng-pristine ng-valid"
-                placeholder="Username" type="text">
+              <input formControlName="username"
+                     class="form-control form-control-lg ng-untouched ng-pristine ng-valid"
+                     placeholder="Username" type="text">
             </fieldset>
             <fieldset class="form-group">
-              <input class="form-control form-control-lg ng-untouched ng-pristine ng-invalid"
+              <input formControlName="email"
+                     class="form-control form-control-lg ng-untouched ng-pristine ng-invalid"
                      placeholder="Email" type="text"
               >
             </fieldset>
             <fieldset class="form-group">
-              <input class="form-control form-control-lg ng-untouched ng-pristine ng-invalid"
+              <input formControlName="password"
+                     class="form-control form-control-lg ng-untouched ng-pristine ng-invalid"
                      placeholder="Password" type="password"
               ></fieldset>
             <button class="btn btn-lg btn-primary pull-xs-right"
                     type="submit"
+                    [disabled]="isSubmitting$ | async"
             > Sign up </button>
           </fieldset>
         </form>
@@ -29,3 +35,29 @@
     </div>
   </div>
 </div>
+
+
+
+<!--<form [formGroup]="buyTicketForm" novalidate>-->
+<!--  <div>-->
+<!--    <label>Passenger</label>-->
+<!--    <input type="text" formControlName="passenger" />-->
+<!--  </div>-->
+
+<!--  <div>-->
+<!--    <label>Age</label>-->
+<!--    <input type="number" formControlName="passengerAge" />-->
+<!--  </div>-->
+
+<!--  <div formGroupName="passengerContacts">-->
+<!--    <div>-->
+<!--      <label>Telegram</label>-->
+<!--      <input type="text" formControlName="telegram" />-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--      <label>Whatsapp</label>-->
+<!--      <input type="text" formControlName="whatsapp" />-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</form>-->
