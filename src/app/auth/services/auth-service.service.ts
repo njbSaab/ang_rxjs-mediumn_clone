@@ -5,9 +5,16 @@ import { CurrentUserInterface } from '../../shared/types/currentUser.interface';
 import { HttpClient } from '@angular/common/http';
 import { enviroment } from '../../../enviroment/enviroment';
 import { AuthResponseInterface } from '../types/authResponse.interface';
+import { LoginRequestInterface } from '../types/loginRequest.interface';
 
 @Injectable()
 export class AuthServiceService {
+  constructor(private http: HttpClient) {}
+
+  public getUser(response: AuthResponseInterface): CurrentUserInterface {
+    return response.user;
+  }
+
   public register(
     data: RegisterRequestInterface,
   ): Observable<CurrentUserInterface> {
@@ -15,7 +22,13 @@ export class AuthServiceService {
 
     return this.http
       .post<AuthResponseInterface>(url, data)
-      .pipe(map((response: AuthResponseInterface) => response.user));
+      .pipe(map(this.getUser));
   }
-  constructor(private http: HttpClient) {}
+
+  public login(data: LoginRequestInterface): Observable<CurrentUserInterface> {
+    const url = `${enviroment.apiUrl2}/users/login`;
+    return this.http
+      .post<AuthResponseInterface>(url, data)
+      .pipe(map(this.getUser));
+  }
 }

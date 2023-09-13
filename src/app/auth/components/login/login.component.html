@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-6 offset-md-3 col-xs-12">
         <h1 class="text-xs-center">Sign up</h1>
-        <p class="text-xs-center"><a [routerLink]="['/login']">Have an account?</a></p>
+        <p class="text-xs-center"><a [routerLink]="['/register']" >Need an account?</a></p>
 
 
         <mc-backend-errors *ngIf="backendErrors$|async"
@@ -15,11 +15,6 @@
               novalidate
               class="ng-untouched ng-pristine ng-invalid">
           <fieldset>
-            <fieldset class="form-group">
-              <input formControlName="username"
-                     class="form-control form-control-lg ng-untouched ng-pristine ng-valid"
-                     placeholder="Username" type="text">
-            </fieldset>
             <fieldset class="form-group">
               <input formControlName="email"
                      class="form-control form-control-lg ng-untouched ng-pristine ng-invalid"
@@ -34,7 +29,7 @@
             <button class="btn btn-lg btn-primary pull-xs-right"
                     type="submit"
                     [disabled]="isSubmitting$ | async"
-            > Sign up </button>
+            > Sign in </button>
           </fieldset>
         </form>
       </div>
