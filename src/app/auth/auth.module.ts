@@ -10,17 +10,21 @@ import { EffectsModule } from '@ngrx/effects';
 import { RegisterEffect } from './store/effects/register.effect';
 import { BackendErrorsModule } from '../shared/modules/backend-errors-module/backend-errors.module';
 import { PresistanceService } from '../shared/modules/services/presistance.service';
+import { LoginEffect } from './store/effects/login.effect';
+import { LoginComponent } from './components/login/login.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [RegisterComponent],
+  declarations: [RegisterComponent, LoginComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     StoreModule.forFeature('auth', reducers),
-    EffectsModule.forFeature([RegisterEffect]),
+    EffectsModule.forFeature([RegisterEffect, LoginEffect]),
     BackendErrorsModule,
+    RouterModule,
   ],
-  exports: [RegisterComponent],
+  exports: [RegisterComponent, LoginComponent],
   providers: [AuthServiceService, PresistanceService],
 })
 export class AuthModule {}
