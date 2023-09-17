@@ -28,13 +28,5 @@ export class TopBarComponent implements OnInit {
     this.isLoggedIn$ = this.store.pipe(select(isLoggedInSelector));
     this.isAnonymous$ = this.store.pipe(select(isAnonymousSelector));
     this.currentUser$ = this.store.pipe(select(currentUserSelector));
-
-    this.currentUser$.subscribe((currentUser) => {
-      if (currentUser) {
-        this.username = currentUser.name;
-      } else {
-        this.username = ''; // Обнуляем username, если currentUser равен null
-      }
-    });
   }
 }

@@ -5,7 +5,7 @@ import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { AuthServiceService } from '../../services/auth-service.service';
 import { CurrentUserInterface } from '../../../shared/types/currentUser.interface';
 import { HttpErrorResponse } from '@angular/common/http';
-import { PresistanceService } from '../../../shared/modules/services/presistance.service';
+import { PresistanceService } from '../../../shared/services/presistance.service';
 import { Router } from '@angular/router';
 import {
   loginAction,

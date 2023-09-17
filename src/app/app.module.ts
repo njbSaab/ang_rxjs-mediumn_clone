@@ -10,8 +10,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { TopBarModule } from './shared/modules/top-bar-module/top-bar.module';
-import { PresistanceService } from './shared/modules/services/presistance.service';
-import { AuthintercepterService } from './shared/modules/services/authintercepter.service';
+import { PresistanceService } from './shared/services/presistance.service';
+import { AuthintercepterService } from './shared/services/authintercepter.service';
+import { GlobalFeedModule } from './global-feed/global-feed.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { AuthintercepterService } from './shared/modules/services/authintercepte
     //modules-component
     AuthModule,
     TopBarModule,
+    GlobalFeedModule,
   ],
   providers: [
     PresistanceService,
