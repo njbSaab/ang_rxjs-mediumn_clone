@@ -6,7 +6,7 @@ import {
   currentUserSelector,
   isAnonymousSelector,
   isLoggedInSelector,
-} from '../../../../auth/store/actions/selectors';
+} from '../../../../auth/store/selectors';
 
 @Component({
   selector: 'mc-top-bar-component',
@@ -28,13 +28,5 @@ export class TopBarComponent implements OnInit {
     this.isLoggedIn$ = this.store.pipe(select(isLoggedInSelector));
     this.isAnonymous$ = this.store.pipe(select(isAnonymousSelector));
     this.currentUser$ = this.store.pipe(select(currentUserSelector));
-
-    this.currentUser$.subscribe((currentUser) => {
-      if (currentUser) {
-        this.username = currentUser.name;
-      } else {
-        this.username = ''; // Обнуляем username, если currentUser равен null
-      }
-    });
   }
 }
