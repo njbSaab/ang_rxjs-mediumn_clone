@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import {
   isSubmittingSelector,
   validationErrorsSelector,
-} from '../../store/actions/selectors';
+} from '../../store/selectors';
 import { AuthServiceService } from '../../services/auth-service.service';
 import { BackendErrorsInterface } from '../../../shared/types/backendErrors.interface';
 import { loginAction } from '../../store/actions/login.action';
