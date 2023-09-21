@@ -14,6 +14,9 @@ import { PresistanceService } from './shared/services/presistance.service';
 import { AuthintercepterService } from './shared/services/authintercepter.service';
 import { GlobalFeedModule } from './global-feed/global-feed.module';
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
+import { YourFeedModule } from './your-feed/your-feed.module';
+import { TagFeedComponent } from './tag-feed/tag-feed/tag-feed.component';
+import { TagFeedModule } from './tag-feed/tag-feed.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,11 +31,13 @@ import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
     StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([]),
+    StoreRouterConnectingModule.forRoot(),
     //modules-component
     AuthModule,
     TopBarModule,
     GlobalFeedModule,
-    StoreRouterConnectingModule.forRoot(),
+    YourFeedModule,
+    TagFeedModule,
   ],
   providers: [
     PresistanceService,

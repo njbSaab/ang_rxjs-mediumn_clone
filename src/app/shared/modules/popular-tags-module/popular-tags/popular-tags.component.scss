@@ -1,0 +1,17 @@
+.tag-list{
+  display: flex;
+  flex-wrap: wrap;
+
+  a{
+    cursor: pointer;
+    transition: .3s ease;
+
+    &:hover{
+      transition: .3s ease;
+      background: rgba(55, 58, 60, 0.8);
+    }
+    &:active{
+      background: rgba(25, 25, 26, 0.67);
+    }
+  }
+}

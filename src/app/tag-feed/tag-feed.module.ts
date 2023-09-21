@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GlobalFeedComponent } from './global-feed-component/global-feed.component';
+import { TagFeedComponent } from './tag-feed/tag-feed.component';
 import { FeedModule } from '../shared/modules/feed-module/feed.module';
+import { FeedToggleModule } from '../shared/modules/feed-toggle-module/feed-toggle.module';
 import { BanerModule } from '../shared/modules/banner-module/baner.module';
 import { PopularTagsModule } from '../shared/modules/popular-tags-module/popular-tags.module';
-import { FeedToggleModule } from '../shared/modules/feed-toggle-module/feed-toggle.module';
 
 @NgModule({
-  declarations: [GlobalFeedComponent],
+  declarations: [TagFeedComponent],
   imports: [
     CommonModule,
     FeedModule,
+    FeedToggleModule,
     BanerModule,
     PopularTagsModule,
-    FeedToggleModule,
   ],
-  exports: [GlobalFeedComponent],
+  exports: [TagFeedComponent],
 })
-export class GlobalFeedModule {}
+export class TagFeedModule {}
