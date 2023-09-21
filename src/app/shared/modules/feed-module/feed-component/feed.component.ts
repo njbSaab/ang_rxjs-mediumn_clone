@@ -1,4 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { getFeedAction } from '../store/actions/getFeed.action';
 import { Observable } from 'rxjs';
@@ -17,7 +23,7 @@ import { parseUrl, stringify } from 'query-string';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss'],
 })
-export class FeedComponent implements OnInit {
+export class FeedComponent implements OnInit, OnChanges {
   @Input('apiUrl') apiUrlProps: string;
   isLoading$: Observable<boolean>;
   error$: Observable<string | null>;
@@ -31,7 +37,7 @@ export class FeedComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
   ) {
-    this.currentPage = 1; // Устанавливаем значение по умолчанию
+    this.currentPage = 1;
   }
 
   ngOnInit(): void {
@@ -64,5 +70,16 @@ export class FeedComponent implements OnInit {
       this.currentPage = Number(params['page']) || 1;
       this.fetchFeed();
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const isApiUrlChanges =
+      !changes['apiUrlProps'].firstChange &&
+      changes['apiUrlProps'].currentValue !==
+        changes['apiUrlProps'].previousValue;
+
+    if (isApiUrlChanges) {
+      this.fetchFeed();
+    }
   }
 }
