@@ -10,6 +10,7 @@ import { ErrorMessageModule } from '../error-message-module/error-message.module
 import { LoadingModule } from '../loading-module/loading.module';
 import { PaginationModule } from '../pagination-module/pagination.module';
 import { TagsModule } from '../tags-module/tags.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [FeedComponent],
@@ -21,6 +22,7 @@ import { TagsModule } from '../tags-module/tags.module';
     LoadingModule,
     PaginationModule,
     TagsModule,
+    RouterModule,
   ],
   exports: [FeedComponent],
   providers: [FeedServiceService],
