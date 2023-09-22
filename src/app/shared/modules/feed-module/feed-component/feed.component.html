@@ -2,9 +2,11 @@
 <mc-error-message *ngIf="error$|async"></mc-error-message>
 
 <div *ngIf="feed$ | async">
-  <div class="article-preview" *ngFor="let article of (feed$ | async)?.articles">
+  <div class="article-preview"
+       *ngFor="let article of (feed$ | async)?.articles"
+   >
     <div class="article-meta">
-      <a>
+      <a [routerLink]="['/profiles', article.author.username]">
         <img [src]="article.author.image">
       </a>
     </div>
@@ -17,7 +19,9 @@
     <div class="pull-xs-right">
       ADD to favorite
     </div>
-    <a class="preview-link" href="">
+    <a class="preview-link"
+       [routerLink]="['/articles', article.slug]"
+    >
       <h1>{{article.title}}</h1>
       <p>{{article.description}}</p>
       <mc-tags [tags]="article.tagList" ></mc-tags>

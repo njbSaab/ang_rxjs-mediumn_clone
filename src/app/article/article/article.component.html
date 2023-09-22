@@ -1,0 +1,46 @@
+<div class="article-page">
+  <div class="banner">
+    <div class="container" *ngIf="article">
+      <h1>{{article.title}}</h1>
+
+        <div class="article-meta article-wrapper container">
+          <div class="left-side">
+            <a [routerLink]="['/profile', article.author.username]">
+              <img [src]="article.author.image" alt="">
+            </a>
+            <a [routerLink]="['/profile', article.author.username]">
+              {{article.author.username}}
+            </a>
+            <span class="date">
+              {{article.createdAt}}
+            </span>
+          </div>
+
+          <div class="right-side">
+  <!--            *ngIf="isAuthor$|async"-->
+            <a class="btn btn-outline-secondary btn-sm"
+              [routerLink]="['/articles', article.slug, 'edit']">
+                <i class="ion-edit">Edit article</i>
+            </a>
+
+            <span style="color: red">DELETE BUTTON</span>
+          </div>
+        </div>
+     </div>
+  </div>
+  <div class="container page">
+    <mc-loading *ngIf="isLoading$|async"></mc-loading>
+    <mc-error-message *ngIf="error$|async"></mc-error-message>
+
+    <div *ngIf="article" class="row article-content">
+      <div class="col-cs-12">
+        <div>
+          {{article.body}}
+        </div>
+        <mc-tags [tags]="article.tagList"></mc-tags>
+      </div>
+    </div>
+  </div>
+</div>
+
+
