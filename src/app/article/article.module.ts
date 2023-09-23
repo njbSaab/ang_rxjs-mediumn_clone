@@ -10,12 +10,14 @@ import { RouterModule } from '@angular/router';
 import { LoadingModule } from '../shared/modules/loading-module/loading.module';
 import { ErrorMessageModule } from '../shared/modules/error-message-module/error-message.module';
 import { TagsModule } from '../shared/modules/tags-module/tags.module';
+import { DeleteArticleEffect } from './store/effects/deleteArticle.effect';
+import { ArticleServiceService } from './service/article-service.service';
 
 @NgModule({
   declarations: [ArticleComponent],
   imports: [
     CommonModule,
-    EffectsModule.forFeature([GetArticleEffect]),
+    EffectsModule.forFeature([GetArticleEffect, DeleteArticleEffect]),
     StoreModule.forFeature('article', reducers),
     RouterModule,
     LoadingModule,
@@ -23,6 +25,6 @@ import { TagsModule } from '../shared/modules/tags-module/tags.module';
     TagsModule,
   ],
   exports: [ArticleComponent],
-  providers: [SharedArticleService],
+  providers: [SharedArticleService, ArticleServiceService],
 })
 export class ArticleModule {}

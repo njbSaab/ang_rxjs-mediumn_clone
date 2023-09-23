@@ -6,7 +6,6 @@ import { AuthServiceService } from '../../services/auth-service.service';
 import { CurrentUserInterface } from '../../../shared/types/currentUser.interface';
 import { PresistanceService } from '../../../shared/services/presistance.service';
 
-import { loginAction } from '../actions/login.action';
 import {
   getCurrentUserAction,
   getCurrentUserFailure,

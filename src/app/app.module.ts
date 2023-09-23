@@ -18,6 +18,10 @@ import { YourFeedModule } from './your-feed/your-feed.module';
 import { TagFeedComponent } from './tag-feed/tag-feed/tag-feed.component';
 import { TagFeedModule } from './tag-feed/tag-feed.module';
 import { ArticleModule } from './article/article.module';
+import { CreateArticleComponent } from './create-article/create-article/create-article.component';
+import { CreateArticleModule } from './create-article/create-article.module';
+import { EditArticleComponent } from './edit-article/edit-article/edit-article.component';
+import { EditArticleModule } from './edit-article/edit-article.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,7 +43,9 @@ import { ArticleModule } from './article/article.module';
     GlobalFeedModule,
     YourFeedModule,
     TagFeedModule,
+    CreateArticleModule,
     ArticleModule,
+    EditArticleModule,
   ],
   providers: [
     PresistanceService,
