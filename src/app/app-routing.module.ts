@@ -6,6 +6,8 @@ import { GlobalFeedComponent } from './global-feed/global-feed-component/global-
 import { YourFeedComponent } from './your-feed/your-feed/your-feed.component';
 import { TagFeedComponent } from './tag-feed/tag-feed/tag-feed.component';
 import { ArticleComponent } from './article/article/article.component';
+import { CreateArticleComponent } from './create-article/create-article/create-article.component';
+import { EditArticleComponent } from './edit-article/edit-article/edit-article.component';
 
 const routes: Routes = [
   {
@@ -31,6 +33,14 @@ const routes: Routes = [
   {
     path: 'articles/:slug',
     component: ArticleComponent,
+  },
+  {
+    path: 'articles-creat',
+    component: CreateArticleComponent,
+  },
+  {
+    path: 'articles/:slug/edit',
+    component: EditArticleComponent,
   },
 ];
 

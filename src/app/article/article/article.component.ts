@@ -11,6 +11,7 @@ import {
 } from '../store/selectors';
 import { currentUserSelector } from '../../auth/store/selectors';
 import { CurrentUserInterface } from '../../shared/types/currentUser.interface';
+import { deleteArticleAction } from '../store/actions/deleteArticle.action';
 
 @Component({
   selector: 'mc-article',
@@ -67,6 +68,9 @@ export class ArticleComponent implements OnInit, OnDestroy {
 
   public fetchData(): void {
     this.store.dispatch(getArticleAction({ slug: this.slug }));
+  }
+  public deleteArticle(): void {
+    this.store.dispatch(deleteArticleAction({ slug: this.slug }));
   }
 
   ngOnDestroy(): void {
