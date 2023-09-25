@@ -60,7 +60,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
           if (!article || !currentUser) {
             return false;
           }
-          return currentUser.name === article.author.username;
+          return currentUser.username === article.author.username;
         },
       ),
     );

@@ -1,0 +1,48 @@
+<div class="settings-page">
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 col-xs-12">
+        <h1 class="text-xs-center">Your Settings</h1>
+        <mc-backend-errors *ngIf="backendErrors$|async"
+                           [backendErrors]="backendErrors$|async"
+        ></mc-backend-errors>
+        <form [formGroup]="form" (ngSubmit)="submit()"
+              class="ng-untouched ng-pristine ng-valid">
+          <fieldset>
+            <fieldset class="form-group">
+              <input class="form-control ng-untouched ng-pristine ng-valid"
+                     formControlName="image"
+                     placeholder="URL of profile picture" type="text">
+            </fieldset>
+            <fieldset class="form-group">
+              <input class="form-control form-control-lg ng-untouched ng-pristine ng-valid"
+                     formControlName="username"
+                     placeholder="Username" type="text">
+            </fieldset>
+            <fieldset class="form-group">
+              <textarea class="form-control form-control-lg ng-untouched ng-pristine ng-valid"
+                        formControlName="bio"
+                        placeholder="Short bio about you" rows="8">
+              </textarea>
+            </fieldset>
+            <fieldset class="form-group">
+              <input class="form-control form-control-lg ng-untouched ng-pristine ng-valid"
+                     formControlName="email"
+                     placeholder="Email" type="email">
+            </fieldset>
+            <fieldset class="form-group">
+              <input class="form-control form-control-lg ng-untouched ng-pristine ng-valid"
+                     formControlName="password"
+                     placeholder="New Password" type="password">
+            </fieldset>
+            <button class="btn btn-lg btn-primary pull-xs-right"
+                    [disabled]="form.invalid || (isSubmitting$|async)"
+                    type="submit"> Update Settings </button>
+          </fieldset>
+        </form>
+        <hr>
+        <button class="btn btn-outline-danger" (click)="logout()"> Or click here to logout. </button>
+      </div>
+    </div>
+  </div>
+</div>

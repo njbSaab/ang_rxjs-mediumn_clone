@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { enviroment } from '../../../enviroment/enviroment';
 import { AuthResponseInterface } from '../types/authResponse.interface';
 import { LoginRequestInterface } from '../types/loginRequest.interface';
+import { CurrentUserInputInterface } from '../../shared/types/currentUserInput.interface';
 
 @Injectable()
 export class AuthServiceService {
@@ -35,5 +36,19 @@ export class AuthServiceService {
   getCurrentUser(): Observable<CurrentUserInterface> {
     const url = `${enviroment.apiUrl2}/user`;
     return this.http.get(url).pipe(map(this.getUser));
+  }
+  updateCurrentUser(
+    currentUserInput: CurrentUserInputInterface,
+  ): Observable<CurrentUserInputInterface> {
+    const url = `${enviroment.apiUrl}/user`;
+    // Создайте новый объект с текущим паролем и обновленными данными
+    const updatedUser: CurrentUserInputInterface = {
+      ...currentUserInput,
+      password: currentUserInput.password,
+    };
+
+    return this.http
+      .put<CurrentUserInputInterface>(url, { user: updatedUser })
+      .pipe(map(() => updatedUser));
   }
 }

@@ -22,6 +22,8 @@ import { CreateArticleComponent } from './create-article/create-article/create-a
 import { CreateArticleModule } from './create-article/create-article.module';
 import { EditArticleComponent } from './edit-article/edit-article/edit-article.component';
 import { EditArticleModule } from './edit-article/edit-article.module';
+import { SettingComponent } from './setting/setting/setting.component';
+import { SettingModule } from './setting/setting.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -46,6 +48,7 @@ import { EditArticleModule } from './edit-article/edit-article.module';
     CreateArticleModule,
     ArticleModule,
     EditArticleModule,
+    SettingModule,
   ],
   providers: [
     PresistanceService,
