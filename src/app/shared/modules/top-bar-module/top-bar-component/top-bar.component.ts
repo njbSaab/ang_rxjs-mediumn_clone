@@ -19,6 +19,7 @@ export class TopBarComponent implements OnInit {
   public isLoggedIn$: Observable<boolean>;
   public isAnonymous$: Observable<boolean>;
   public currentUser$: Observable<CurrentUserInterface | null>;
+  public userProfile: any;
 
   public username: string = '';
 

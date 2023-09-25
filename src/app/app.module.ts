@@ -24,6 +24,7 @@ import { EditArticleComponent } from './edit-article/edit-article/edit-article.c
 import { EditArticleModule } from './edit-article/edit-article.module';
 import { SettingComponent } from './setting/setting/setting.component';
 import { SettingModule } from './setting/setting.module';
+import { UserProfileModule } from './userProfile/user-profile.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -49,6 +50,7 @@ import { SettingModule } from './setting/setting.module';
     ArticleModule,
     EditArticleModule,
     SettingModule,
+    UserProfileModule,
   ],
   providers: [
     PresistanceService,

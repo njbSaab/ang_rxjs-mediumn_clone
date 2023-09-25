@@ -6,6 +6,7 @@ import { catchError, map, of, switchMap } from 'rxjs';
 import {
   addToFavoriteAction,
   addToFavoriteFailureAction,
+  addToFavoriteSuccessAction,
 } from '../actions/addToActions.action';
 import { AddToFavoriteService } from '../../services/add-to-favorite.service';
 import { ArticleInterface } from '../../../../types/article.interface';
@@ -21,10 +22,7 @@ export class AddToFavoriteEffect {
           : this.addToFavoriteService.addToFavorite(slug);
         return article$.pipe(
           map((article: ArticleInterface) => {
-            const isFavorited = article.favorited;
-            const slug = article.slug;
-
-            return addToFavoriteAction({ isFavorited, slug });
+            return addToFavoriteSuccessAction({ article });
           }),
           catchError(() => {
             return of(addToFavoriteFailureAction());
