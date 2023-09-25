@@ -11,6 +11,7 @@ import { LoadingModule } from '../loading-module/loading.module';
 import { PaginationModule } from '../pagination-module/pagination.module';
 import { TagsModule } from '../tags-module/tags.module';
 import { RouterModule } from '@angular/router';
+import { AddToFavoriteModule } from '../add-to-favotite/add-to-favorite.module';
 
 @NgModule({
   declarations: [FeedComponent],
@@ -23,6 +24,7 @@ import { RouterModule } from '@angular/router';
     PaginationModule,
     TagsModule,
     RouterModule,
+    AddToFavoriteModule,
   ],
   exports: [FeedComponent],
   providers: [FeedServiceService],
