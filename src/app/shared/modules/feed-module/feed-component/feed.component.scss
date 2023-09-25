@@ -1,0 +1,15 @@
+.article-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.article-profile-wrapper{
+  display: flex;
+  gap: 10px;
+
+  h5{
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+  }
+}

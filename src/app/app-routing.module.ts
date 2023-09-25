@@ -9,6 +9,7 @@ import { ArticleComponent } from './article/article/article.component';
 import { CreateArticleComponent } from './create-article/create-article/create-article.component';
 import { EditArticleComponent } from './edit-article/edit-article/edit-article.component';
 import { SettingComponent } from './setting/setting/setting.component';
+import { UserProfileComponent } from './userProfile/user-profile/user-profile.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,14 @@ const routes: Routes = [
   {
     path: 'settings',
     component: SettingComponent,
+  },
+  {
+    path: 'user-profile/:slug',
+    component: UserProfileComponent,
+  },
+  {
+    path: 'user-profile/:slug/favorites',
+    component: UserProfileComponent,
   },
 ];
 
